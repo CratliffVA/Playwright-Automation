@@ -10,9 +10,10 @@ test('Login Success', async ({ page }) => {
   // Perform the login with the specified credentials
   await loginpage.login('ReadOnlyUser1', 'Rules@123');
 
- // Click the 'Log in' button to submit the login form
+   // Click the 'Log in' button to submit the login form
  await page.getByRole('button', { name: 'Log in' }).click();
-
- // Verify that DOCMP is visible verifying successful login
- await expect(page.locator('[data-test-id="\\32 014100609491604293426"]')).toBeVisible();
+ 
+  // Verify that DOCMP is visible verifying successful login
+  await expect(page.getByRole('link', { name: 'DOCMP' })).toBeVisible();
 });
+
